@@ -179,8 +179,14 @@
                                         name="input-telefone"
                                         id="input-telefone"
                                         v-model="cliente.telefone"
+                                        v-model.trim="$v.cliente.telefone.$model"
                                         v-mask="'(##) ####-####'"
                                     >
+                                    <div
+                                        v-if="!$v.cliente.telefone.minLength"
+                                    >
+                                        <strong style="color: red;">Telefone incompleto!</strong>
+                                    </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="input-celular">Celular</label>
@@ -190,8 +196,14 @@
                                         name="input-celular"
                                         id="input-celular"
                                         v-model="cliente.celular"
-                                        v-mask="'(##) ####-####'"
+                                        v-model.trim="$v.cliente.celular.$model"
+                                        v-mask="'(##) #####-####'"
                                     >
+                                    <div
+                                        v-if="!$v.cliente.celular.minLength"
+                                    >
+                                        <strong style="color: red;">Celular incompleto!</strong>
+                                    </div>
                                 </div>
                                 <div class="form-group col-12">
                                     <button
@@ -375,7 +387,7 @@
                         </div>
                         <div class="form-group col-4">
                             <label for="input-estado">Estado</label>
-                            <input
+                            <!-- <input
                                 type="text"
                                 class="form-control"
                                 name="input-estado"
@@ -383,7 +395,19 @@
                                 required
                                 v-model="endereco.estado"
                                 v-model.trim="$v.endereco.estado.$model"
+                            > -->
+                            <select
+                                class="form-control"
+                                id="input-estado"
+                                v-model="endereco.estado"
                             >
+                                <option
+                                    v-for="estado in Helpers.default.estados"
+                                    :key="estado"
+                                >
+                                    {{ estado }}
+                                </option>
+                            </select>
                             <div
                                 v-if="!$v.endereco.estado.required"
                             >
@@ -433,7 +457,7 @@ export default {
                 complemento: '',
                 bairro: '',
                 cidade: '',
-                estado: '',
+                estado: 'Acre',
                 cep: '',
             },
             indice: null,
@@ -457,6 +481,12 @@ export default {
             },
             nome: {
                 required,
+            },
+            celular: {
+                minLength: minLength(15),
+            },
+            telefone: {
+                minLength: minLength(14),
             },
         },
         endereco: {
@@ -530,9 +560,15 @@ export default {
         submit() {
             let formValido = false;
             if (this.ehFisica) {
-                formValido = !this.$v.cliente.cpf.$invalid && !this.$v.cliente.nascimento.$invalid;
+                formValido = !this.$v.cliente.cpf.$invalid
+                    && !this.$v.cliente.nascimento.$invalid
+                    && !this.$v.cliente.telefone.$invalid
+                    && !this.$v.cliente.celular.$invalid;
             } else {
-                formValido = !this.$v.cliente.cnpj.$invalid && !this.$v.cliente.razao_social.$invalid;
+                formValido = !this.$v.cliente.cnpj.$invalid
+                    && !this.$v.cliente.razao_social.$invalid
+                    && !this.$v.cliente.telefone.$invalid
+                    && !this.$v.cliente.celular.$invalid;
             }
             if (formValido) {
                 if (this.cliente.enderecos.length > 0) {
