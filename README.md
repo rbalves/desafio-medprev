@@ -1,29 +1,21 @@
-# app-crud-pessoa
+# Desafio MEDPREV
+Aplicação desenvolvida usando Vue.js
 
-## Project setup
+## Acesso
+A aplicação pode ser acessada clicando aqui.
+
+## Setup local
+
+### Requisitos
+Node 10.16.3+
+NPM 6.9.0+
+
+### Instalando as dependências
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Executando
 ```
 yarn run serve
 ```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
