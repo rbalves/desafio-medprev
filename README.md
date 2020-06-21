@@ -2,7 +2,7 @@
 Aplicação desenvolvida usando Vue.js
 
 ## Acesso
-A aplicação pode ser acessada clicando aqui.
+A aplicação pode ser acessada clicando [aqui](https://rbalves.github.io/desafio-medprev).
 
 ## Setup local
 
