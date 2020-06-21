@@ -1,7 +1,7 @@
 <template>
     <header id="header">
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #056E34">
-            <router-link to="/" class="nav-brand">
+            <router-link to="/desafio-medprev/" class="nav-brand">
                 <img src="../../assets/logo_medprev.png" alt="Logo">
             </router-link>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -13,7 +13,7 @@
                         v-for="item in items"
                         :key="item.id"
                         :class="[currentPage.includes(item.path) ? 'active': '' ]" class="nav-item">
-                        <router-link :to="`/${item.path}`" class="nav-link">
+                        <router-link :to="`/desafio-medprev/${item.path}`" class="nav-link">
                             <span :class="item.icon"></span> {{ item.text }}
                         </router-link>
                     </li>
