@@ -12,22 +12,22 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: 'desafio-medprev/',
             name: 'Home',
             component: Home,
         },
         {
-            path: '/clientes',
+            path: 'desafio-medprev/clientes',
             name: 'ClientesLista',
             component: ClientesLista,
         },
         {
-            path: '/clientes/cadastro',
+            path: 'desafio-medprev/clientes/cadastro',
             name: 'ClientesCadastro',
             component: ClientesCadastro,
         },
         {
-            path: '/clientes/editar/:id',
+            path: 'desafio-medprev/clientes/editar/:id',
             name: 'ClientesEditar',
             component: ClientesEditar,
         },
