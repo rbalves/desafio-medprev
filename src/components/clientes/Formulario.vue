@@ -387,19 +387,11 @@
                         </div>
                         <div class="form-group col-4">
                             <label for="input-estado">Estado</label>
-                            <!-- <input
-                                type="text"
-                                class="form-control"
-                                name="input-estado"
-                                id="input-estado"
-                                required
-                                v-model="endereco.estado"
-                                v-model.trim="$v.endereco.estado.$model"
-                            > -->
                             <select
                                 class="form-control"
                                 id="input-estado"
                                 v-model="endereco.estado"
+                                v-model.trim="$v.endereco.estado.$model"
                             >
                                 <option
                                     v-for="estado in Helpers.default.estados"
@@ -422,8 +414,14 @@
                                 name="input-cep"
                                 id="input-cep"
                                 v-model="endereco.cep"
+                                v-model.trim="$v.endereco.cep.$model"
                                 v-mask="'#####-###'"
                             >
+                            <div
+                                v-if="!$v.endereco.cep.minLength"
+                            >
+                                <strong style="color: red;">CEP incompleto!</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -501,6 +499,9 @@ export default {
             },
             estado: {
                 required,
+            },
+            cep: {
+                minLength: minLength(9),
             },
         },
     },
