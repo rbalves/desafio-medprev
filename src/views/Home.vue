@@ -4,7 +4,7 @@
             <h1 class="display-2">Bem vindo!</h1>
             <h5>Gerencie seus clientes de forma fácil.</h5>
         </div>
-        <router-link to="/clientes" class="btn btn-success btn-lg">
+        <router-link to="/desafio-medprev/clientes" class="btn btn-success btn-lg">
             <span class="fa fa-users"></span> Ver clientes
         </router-link>
     </div>

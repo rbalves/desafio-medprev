@@ -9,7 +9,7 @@
                         Desculpe, ocorreu um erro: esta página não foi encontrada!
                     </div>
                     <div class="error-actions">
-                        <router-link to="/" class="btn btn-success btn-lg">
+                        <router-link to="/desafio-medprev" class="btn btn-success btn-lg">
                             <span class="fa fa-home"></span> Ir para a página inicial
                         </router-link>
                         <a href="https://medprev.online/fale-conosco/" target="_blank" class="btn btn-primary btn-lg">

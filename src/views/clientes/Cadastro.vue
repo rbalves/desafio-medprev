@@ -44,7 +44,7 @@ export default {
             this.mensagem = '';
             if (response.status === 200) {
                 alert('Cliente salvo com sucesso!');
-                this.$router.push('/clientes');
+                this.$router.push('/desafio-medprev/clientes');
             } else {
                 alert('Ocorreu um erro! Os dados não foram salvos');
             }

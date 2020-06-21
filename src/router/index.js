@@ -12,7 +12,7 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '/desafio-medprev/',
+            path: '/desafio-medprev',
             name: 'Home',
             component: Home,
         },

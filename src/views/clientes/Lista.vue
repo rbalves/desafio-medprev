@@ -6,7 +6,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">
                             Clientes
-                            <router-link to="/clientes/cadastro" class="btn btn-success btn-sm">
+                            <router-link to="/desafio-medprev/clientes/cadastro" class="btn btn-success btn-sm">
                                 <span class="fa fa-plus"></span> Novo
                             </router-link>
                         </h3>
@@ -261,7 +261,7 @@ export default {
             }
         },
         editarCliente(id) {
-            this.$router.push(`/clientes/editar/${id}`);
+            this.$router.push(`/desafio-medprev/clientes/editar/${id}`);
         },
         verCliente(cliente) {
             this.cliente = { ...cliente };

@@ -264,7 +264,7 @@
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-success m-1">Salvar</button>
-                            <router-link to="/clientes" class="btn btn-danger m1">
+                            <router-link to="/desafio-medprev/clientes" class="btn btn-danger m1">
                                 Cancelar
                             </router-link>
                             <span class="ml-2" v-if="mensagem">{{ mensagem }}</span>
