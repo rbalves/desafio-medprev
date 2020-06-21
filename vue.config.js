@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/vue-credit-card/',
+    publicPath: '/desafio-medprev/',
     pages: {
         index: {
             entry: 'src/main.js',
