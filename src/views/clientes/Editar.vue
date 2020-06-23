@@ -1,11 +1,19 @@
 <template>
-    <Formulario
-        titulo="Editar cliente"
-        :cliente="cliente"
-        @cliente="atualizarCliente($event)"
-        :mensagem="mensagem"
-        :formDisabled="formDisabled"
-    />
+    <div>
+        <div class="card m-2" v-if="!cliente">
+            <div class="card-body text-center">
+                Buscando informações do cliente...
+            </div>
+        </div>
+        <Formulario
+            v-if="cliente"
+            titulo="Editar cliente"
+            :cliente="cliente"
+            @cliente="atualizarCliente($event)"
+            :mensagem="mensagem"
+            :formDisabled="formDisabled"
+        />
+    </div>
 </template>
 
 <script>
