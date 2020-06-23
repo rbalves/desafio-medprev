@@ -222,19 +222,24 @@ export default {
     },
     methods: {
         async getClientes() {
-            this.clientes = [];
-            this.mensagem = 'Buscando clientes...';
-            const response = await Cliente.getClientes(this.skip);
-            this.clientes = response.data;
-            if (this.clientes.length === 0) {
-                if (this.skip === 0) {
-                    this.mensagem = 'Nenhum cliente encontrado.';
-                } else {
-                    this.paginaAnterior();
+            try {
+                this.clientes = [];
+                this.mensagem = 'Buscando clientes...';
+                const response = await Cliente.getClientes(this.skip);
+                this.clientes = response.data;
+                if (this.clientes.length === 0) {
+                    if (this.skip === 0) {
+                        this.mensagem = 'Nenhum cliente encontrado.';
+                    } else {
+                        this.paginaAnterior();
+                    }
                 }
+                this.proximaDisabled = this.clientes.length < 5;
+            } catch {
+                /* eslint-disable */
+                alert('Ocorreu um erro ao consultar a API');
+                this.mensagem = 'Nenhum cliente encontrado.';
             }
-
-            this.proximaDisabled = this.clientes.length < 5;
         },
         proximaPagina() {
             if (this.clientes.length >= 5) {
